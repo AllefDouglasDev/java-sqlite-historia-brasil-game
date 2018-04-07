@@ -1,0 +1,8 @@
+ /*Adiicionar Build Path do SQLite que se encontra na pasta bd
+  * Caso o drive jdbc não esteja conectado
+  * 
+  * Como add:
+  * 
+  * Botao direito no projeto > Build Path > Configure Build Path > Libraries > Add JAR > "nomeDoProjeto" > bd > sqlite-jdbc-3.7.2 > Ok > Apply
+  * 
+  * */
