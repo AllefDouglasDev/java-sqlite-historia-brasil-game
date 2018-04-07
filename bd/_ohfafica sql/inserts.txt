@@ -1,0 +1,67 @@
+INSERT INTO assunto VALUES(1, 'Pré-História');
+
+INSERT INTO assunto VALUES(2, 'História Antiga');
+
+INSERT INTO assunto VALUES(3, 'História Medieval');
+
+INSERT INTO assunto VALUES(4, 'História Moderna');
+
+INSERT INTO assunto VALUES(5, 'História Contemporânia');
+
+INSERT INTO assunto VALUES(6, 'História do Brasil');
+
+/**/
+
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O período conhecido como Idade dos Metais, caracterizou-se por:", 1);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("No período neolítico:", 1);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Durante o paleolítico, ficou conhecida a arte rupestre que era:", 1);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Qual o nome para o período onde o fogo foi dominado? ", 1);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("São características do período conhecido como Neolítico:", 1);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Durante a chama “Idade da Pedra Lascada” surge como alternativa comunicativa a arte rupestre. O que era a arte rupestre?", 1);
+
+/**/
+
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Após as grandes expansões territoriais, qual atividade tornou-se a base da economia no Antigo Império Romano?", 2);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Na Grécia antiga:", 2);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Para que serviam as pirâmides no Egito antigo?", 2);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("A lei de Talião “Olho por olho, dente por dente” é o mais antigo dos códigos usados na antiguidade, criado pelo governante:", 2);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("com base em seus conhecimentos sobre história antiga, onde surgiu as primeiras formas de escrita cuneiforme? ", 2);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O Edito de Milão, assinado em 313 d.C. por Constantino, mudou a relação entre igreja cristã e o estado romano, por quê?", 2);
+
+/**/
+
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Oficialmente, quantas  “Guerras Santas” foram contabilizadas pelos historiadores medievais?", 3);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Sobre a peste negra:", 3);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Qual foi o principal objetivo das cruzadas?", 3);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Quais povos germânicos invadiram o Império Romano a partir do século III d.C.", 3);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Podemos destacar dentro do modo de produção feudal os seguintes aspectos:", 3);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("As corporações de Ofício, no contexto medieval, têm como seu objetivo principal:", 3);
+
+/**/
+
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Entre os filósofos que basearam a teoria iluminista, estão:", 4);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("A reforma religiosa inglesa teve como consequência:", 4);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Na Guerra de Independência, os EUA tiveram o apoio dos seguintes países:", 4);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Qual foi o lema que ficou bastante conhecido durante a revolução francesa, por resumir todos os desejos da França em uma só frase?", 4);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Quais características abaixo, podem ser atribuídas a política econômica mercantilista", 4);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Quais características podemos apontar sobre a arte renascentista:", 4);
+
+/**/
+
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O Programa de Ação Imediata (PAI), uma das fases do Plano Real, elaborado em 1993 para atender as “necessidades” econômicas da época, não tinha como medida:", 5);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("A Revolução russa:", 5);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O “ludismo” que ocorreu durante a Revolução Industrial:", 5);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O dia 11 de setembro de 2001, ficou marcado pelo ataque as Torres Gêmeas em Nova Iorque. Qual o grupo terrorista que comandou o ataque?", 5);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("No quadro “Guernica”, Picasso, registrou a tragédia e a destruição", 5);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O acidente nuclear de Chernobyl fora consequência:", 5);
+
+/**/
+
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("O principal líder do partido liberal no período regencial brasileiro foi:", 6);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("A cabanagem, influenciada pela Revolução Francesa, teve a presença dos atuais estados:", 6);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Entre os séculos XVI e XVII, dois países tentaram invadir o Brasil e fincar raízes para tirá-lo de Portugal. Quais foram esses países?", 6);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Na primeira constituição Brasileira em 1824, existiam quatro poderes. Além dos poderes Executivo, Legislativo e Judiciário, havia:", 6);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Sobre o Segundo Reinado, é incorreto afirmar que", 6);
+INSERT INTO pergunta(pergunta, id_assunto) VALUES("Getúlio Vargas durante seu governo instruiu o estado novo, que terminou em 1945 por:", 6);
+
+/**/

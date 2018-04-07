@@ -1,0 +1,47 @@
+DROP TABLE IF EXISTS `escola`;
+CREATE TABLE `escola` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  `nome` varchar(50) NOT NULL UNIQUE
+);
+
+DROP TABLE IF EXISTS `assunto`;
+CREATE TABLE `assunto` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  `nome` varchar(40) NOT NULL
+);
+
+DROP TABLE IF EXISTS `pergunta`;
+CREATE TABLE `pergunta` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  `pergunta` VARVHAR(200) NOT NULL,
+  `id_assunto` INTEGER NOT NULL,
+  `respondida` varchar(10) NOT NULL,
+  FOREIGN KEY (`id_assunto`) REFERENCES assunto (`id`)
+);
+
+DROP TABLE IF EXISTS `alternativa`;
+CREATE TABLE `alternativa` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  `id_pergunta` INTEGER NOT NULL,
+  `resposta` varchar(200) NOT NULL,
+  `correta` varchar(10) NOT NULL,
+  FOREIGN KEY (`id_pergunta`) REFERENCES pergunta (`id`)
+);
+
+DROP TABLE IF EXISTS `pontuacao`;
+CREATE TABLE `pontuacao` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  `id_escola` INTEGER DEFAULT NULL,
+  `resposta_certa` INTEGER DEFAULT NULL,
+  `resposta_errada` INTEGER DEFAULT NULL,
+  FOREIGN KEY (`id_escola`) REFERENCES escola (`id`)
+);
+
+DROP TABLE IF EXISTS `escola_escolhe_assunto`;
+CREATE TABLE `escola_escolhe_assunto` (
+  `id_escola` INTEGER NOT NULL,
+  `id_assunto` INTEGER NOT NULL,
+  PRIMARY KEY (`id_escola`,`id_assunto`),
+  FOREIGN KEY (`id_assunto`) REFERENCES assunto (`id`),
+  FOREIGN KEY (`id_escola`) REFERENCES escola (`id`)
+);
