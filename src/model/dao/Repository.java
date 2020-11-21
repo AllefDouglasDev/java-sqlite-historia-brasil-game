@@ -7,21 +7,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.bean.Alternativa;
-import model.bean.Pergunta;
+import model.bean.Alternative;
+import model.bean.Subject;
+import model.bean.Question;
 
 
-public class TabelasInsertsDAO {
+public class Repository {
 	
 	Connection con = null;
 	
-	public TabelasInsertsDAO(){
-		con = ConexaoBanco.obterConexao();
+	public Repository(){
+		con = DatabaseConnection.getConnection();
 	}
 	
-	public boolean criarTabela(String tabela){
+	public boolean createTable(String sql){
 		PreparedStatement stmt = null;
-		String sql = tabela;
 		try {
 			stmt = con.prepareStatement(sql);
 			stmt.executeUpdate();
@@ -36,7 +36,7 @@ public class TabelasInsertsDAO {
 		return false;
 	}
 	
-	public boolean inserirJogador(String nome)
+	public boolean createPlayer(String nome)
 	{
 		PreparedStatement stmt = null;
 		String sql = "INSERT INTO escola(nome) VALUES(?);";
@@ -55,7 +55,7 @@ public class TabelasInsertsDAO {
 		return false;
 	}
 	
-	public boolean inserirAssunto(String nome)
+	public boolean createSubject(String nome)
 	{
 		PreparedStatement stmt = null;
 		String sql = "INSERT INTO assunto(nome) VALUES(?);";
@@ -74,7 +74,7 @@ public class TabelasInsertsDAO {
 		return false;
 	}
 	
-	public boolean inserirPergunta(String pergunta, String respondida, int idAssunto)
+	public boolean createQuestion(String pergunta, String respondida, int idAssunto)
 	{
 		PreparedStatement stmt = null;
 		String sql = "INSERT INTO pergunta(pergunta, respondida, id_assunto) VALUES(?,?,?);";
@@ -95,7 +95,7 @@ public class TabelasInsertsDAO {
 		return false;
 	}
 	
-	public boolean inserirResposta(int idPergunta, String resposta, String correta)
+	public boolean createAlternative(int idPergunta, String resposta, String correta)
 	{
 		PreparedStatement stmt = null;
 		String sql = "INSERT INTO alternativa(id_pergunta, resposta, correta) VALUES(?,?,?);";
@@ -116,8 +116,37 @@ public class TabelasInsertsDAO {
 		return false;
 	}
 	
-	public List<Pergunta> listarPergunta(int idAssunto){
-		List<Pergunta> pergunta = new ArrayList<Pergunta>();
+	public List<Subject> getSubjects() {
+		List<Subject> subjects = new ArrayList<Subject>();
+		
+		PreparedStatement stmt = null;
+		ResultSet rs;
+
+		String sql = "SELECT id, nome FROM assunto";
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			
+			while(rs.next()){
+				subjects.add(new Subject(rs.getInt("id"), rs.getString("nome")));
+			}
+			
+			stmt.close();
+			
+			return subjects;
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally{
+			try { stmt.close(); 
+			} catch (SQLException e) {e.printStackTrace(); }
+		}
+		
+		return subjects;
+	}
+	
+	public List<Question> getQuestions(int idAssunto){
+		List<Question> pergunta = new ArrayList<Question>();
 		PreparedStatement stmt = null;
 		String sql = "SELECT id, pergunta FROM pergunta WHERE id_assunto = (?) and respondida = ('n')";
 		ResultSet rs;
@@ -126,7 +155,7 @@ public class TabelasInsertsDAO {
 		stmt.setInt(1, idAssunto);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Pergunta p = new Pergunta(rs.getInt("id"), rs.getString("pergunta"));
+			Question p = new Question(rs.getInt("id"), rs.getString("pergunta"));
 			pergunta.add(p);
 		}
 		stmt.close();
@@ -140,8 +169,8 @@ public class TabelasInsertsDAO {
 		return pergunta;
 	}
 	
-	public List<Alternativa> listarAlternativa(int idPergunta){
-		List<Alternativa> alternativa = new ArrayList<Alternativa>();
+	public List<Alternative> getAlternatives(int idPergunta){
+		List<Alternative> alternativa = new ArrayList<Alternative>();
 		PreparedStatement stmt = null;
 		String sql = "SELECT resposta, correta FROM alternativa WHERE id_pergunta = (?)";
 		ResultSet rs;
@@ -150,7 +179,7 @@ public class TabelasInsertsDAO {
 		stmt.setInt(1, idPergunta);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Alternativa a =  new Alternativa(1, rs.getString("resposta"), rs.getString("correta"));
+			Alternative a =  new Alternative(1, rs.getString("resposta"), rs.getString("correta"));
 			alternativa.add(a);
 		}
 		stmt.close();

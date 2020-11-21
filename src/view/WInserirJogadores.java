@@ -25,7 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import controller.JogadoresController;
-import model.bean.Jogador;
+import model.bean.Player;
 import util.PropriedadesTela;
 
 
@@ -152,7 +152,7 @@ public class WInserirJogadores extends JFrame {
 	
 	public void lblCopyright(JPanel panelFooter)
 	{
-		JLabel lblCopyright = new JLabel("© Copyright Grey Tool Co.");
+		JLabel lblCopyright = new JLabel("ï¿½ Copyright Grey Tool Co.");
 		lblCopyright.setForeground(new Color(255, 255, 255));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCopyright.setSize((int)(panelFooter.getWidth() * 0.35), (int)(panelFooter.getHeight() * 0.5));
@@ -162,7 +162,7 @@ public class WInserirJogadores extends JFrame {
 		panelFooter.add(lblCopyright);
 	}
 	
-	//Início da parte do JPanel panelHeader
+	//Inï¿½cio da parte do JPanel panelHeader
 	public void lblSlogan(JPanel panelHeader){
 		JLabel lblSlogan = new JLabel("");
 		lblSlogan.setSize((int)(panelHeader.getWidth() * 0.15), panelHeader.getHeight() - 4);
@@ -186,7 +186,7 @@ public class WInserirJogadores extends JFrame {
 		
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Olimpíada de História Fafica",JOptionPane.YES_NO_OPTION);
+				int resposta = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Olimpï¿½ada de Histï¿½ria Fafica",JOptionPane.YES_NO_OPTION);
 				if(resposta == JOptionPane.YES_OPTION){
 					JogadoresController jc = new JogadoresController();
 					jc.zerarGame();
@@ -199,7 +199,7 @@ public class WInserirJogadores extends JFrame {
 	}
 	//Fim da parte do JPanel panelHeader
 	
-	//Início da parte do JPanel panelAddJogador
+	//Inï¿½cio da parte do JPanel panelAddJogador
 	public void tfNomeJogador(JPanel panelAddJogadores)
 	{
 		tfNomeJogador = new JTextField();
@@ -232,7 +232,7 @@ public class WInserirJogadores extends JFrame {
 				if(nome.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Por favor, insira o nome do jogador.", "OHF - Erro", JOptionPane.ERROR_MESSAGE);
 				}else if(nome.length() > 15){
-					JOptionPane.showMessageDialog(null, "Insira um nome de jogador com no máximo 15 caracteres.",
+					JOptionPane.showMessageDialog(null, "Insira um nome de jogador com no mï¿½ximo 15 caracteres.",
 												  "OHF - Erro", JOptionPane.ERROR_MESSAGE);
 				}else{
 					if(!listaJogadores.isEmpty()){
@@ -248,7 +248,7 @@ public class WInserirJogadores extends JFrame {
 						i++;
 						tfNomeJogador.setText("");
 					}else{
-						JOptionPane.showMessageDialog(null, "O jogador " + nome + " já existe.");
+						JOptionPane.showMessageDialog(null, "O jogador " + nome + " jï¿½ existe.");
 					}
 				}
 				
@@ -279,7 +279,7 @@ public class WInserirJogadores extends JFrame {
 	}
 	//Fim da parte do JPanel panelAddJogador
 	
-	//Início da parte do JPanel panelListaJogadores
+	//Inï¿½cio da parte do JPanel panelListaJogadores
 	public void btnAceitar(JPanel panelListaJogadores)
 	{
 		btnAceitar = new JButton("Aceitar");
@@ -301,7 +301,7 @@ public class WInserirJogadores extends JFrame {
 						jc.insertJogador(listaJogadores.get(i));
 					}
 					
-					List<Jogador> lj = new ArrayList<Jogador>();
+					List<Player> lj = new ArrayList<Player>();
 					lj.addAll(jc.listarJogadores());
 					
 					for (int i = 0; i < lj.size(); i++) {
@@ -312,7 +312,7 @@ public class WInserirJogadores extends JFrame {
 					dispose();
 					wj.main(null);
 				}else if(!listaJogadores.isEmpty()){
-					JOptionPane.showMessageDialog(null, "É necessário 6 jogadores para iniciar.\nFaltam " + (6 - listaJogadores.size()) + " jogadores", "OHF - Erro", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ï¿½ necessï¿½rio 6 jogadores para iniciar.\nFaltam " + (6 - listaJogadores.size()) + " jogadores", "OHF - Erro", JOptionPane.ERROR_MESSAGE);
 				}else{
 					JOptionPane.showMessageDialog(null, "Nenhum jogador inserido.", "OHF - Erro", JOptionPane.ERROR_MESSAGE);
 					

@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.bean.Assunto;
-import model.bean.Jogador;
-import model.bean.Pergunta;
+import model.bean.Subject;
+import model.bean.Player;
+import model.bean.Question;
 
-public class JogadoresDAO {
+public class PlayerDAO {
 	
 	Connection con = null;
 	
-	public JogadoresDAO(){
-		con = ConexaoBanco.obterConexao();
+	public PlayerDAO(){
+		con = DatabaseConnection.getConnection();
 	}
 	
 	public void inserirPontuacao(int idEscola)
@@ -53,8 +53,8 @@ public class JogadoresDAO {
 		}
 	}
 	
-	public List<Jogador> listarJogadores(){
-		List<Jogador> jogador = new ArrayList<Jogador>();
+	public List<Player> listarJogadores(){
+		List<Player> jogador = new ArrayList<Player>();
 		PreparedStatement stmt = null;
 		String sql = "SELECT id,nome FROM escola";
 		ResultSet rs;
@@ -62,7 +62,7 @@ public class JogadoresDAO {
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Jogador jg = new Jogador(rs.getString("nome"), rs.getInt("id"));
+			Player jg = new Player(rs.getString("nome"), rs.getInt("id"));
 			jogador.add(jg);
 		}
 		stmt.close();
@@ -118,8 +118,8 @@ public class JogadoresDAO {
 		}	
 	}
 	
-	public List<Jogador> listaOgranizadaRespostaCerta(){
-		List<Jogador> jogador = new ArrayList<Jogador>();
+	public List<Player> listaOgranizadaRespostaCerta(){
+		List<Player> jogador = new ArrayList<Player>();
 		PreparedStatement stmt = null;
 		String sql = "SELECT e.nome, e.id "+
 				"FROM pontuacao p "+
@@ -132,7 +132,7 @@ public class JogadoresDAO {
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Jogador jg = new Jogador(rs.getString("nome"), rs.getInt("id"));
+			Player jg = new Player(rs.getString("nome"), rs.getInt("id"));
 			jogador.add(jg);
 		}
 		stmt.close();
@@ -186,8 +186,8 @@ public class JogadoresDAO {
 			
 	}
 	
-	public List<Pergunta> listarPerguntaRespondida(){
-		List<Pergunta> pergunta = new ArrayList<Pergunta>();
+	public List<Question> listarPerguntaRespondida(){
+		List<Question> pergunta = new ArrayList<Question>();
 		PreparedStatement stmt = null;
 		String sql = "SELECT id FROM pergunta WHERE respondida = 's'";
 		ResultSet rs;
@@ -195,7 +195,7 @@ public class JogadoresDAO {
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Pergunta p = new Pergunta(rs.getInt("id"));
+			Question p = new Question(rs.getInt("id"));
 			pergunta.add(p);
 		}
 		stmt.close();

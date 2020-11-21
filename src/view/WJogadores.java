@@ -25,7 +25,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import controller.JogadoresController;
-import model.bean.Jogador;
+import model.bean.Player;
 import util.PropriedadesTela;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -144,7 +144,7 @@ public class WJogadores extends JFrame {
 	
 	public void lblCopyright(JPanel panelRodape)
 	{
-		JLabel lblCopyright = new JLabel("© Copyright Grey Tool Co.");
+		JLabel lblCopyright = new JLabel("ï¿½ Copyright Grey Tool Co.");
 		lblCopyright.setForeground(new Color(255, 255, 255));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCopyright.setSize((int)(panelRodape.getWidth() * 0.35), (int)(panelRodape.getHeight() * 0.5));
@@ -264,10 +264,10 @@ public class WJogadores extends JFrame {
 		listaJogadores.setLocation(local(panelJogadores.getWidth(), listaJogadores.getWidth(), 50), (int)(panelJogadores.getHeight() * 0.1));
 		panelJogadores.add(listaJogadores);
 		
-		List<Jogador> jg = new ArrayList<Jogador>();
+		List<Player> jg = new ArrayList<Player>();
 		jg.addAll(jc.listarJogadores());
 		
-		jg.forEach(n -> model.addElement(n.getNome().toString()));//Expressão lambda para impressão dos jogadores no list
+		jg.forEach(n -> model.addElement(n.getNome().toString()));//Expressï¿½o lambda para impressï¿½o dos jogadores no list
 	}
 	
 	/**

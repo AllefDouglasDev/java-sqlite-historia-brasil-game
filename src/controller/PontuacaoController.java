@@ -2,24 +2,24 @@ package controller;
 
 import java.util.List;
 
-import model.bean.Pontuacao;
-import model.dao.JogadoresDAO;
-import model.dao.PontuacaoDAO;
+import model.bean.Point;
+import model.dao.PlayerDAO;
+import model.dao.PointDAO;
 
 public class PontuacaoController {
 	
-	PontuacaoDAO ptdao = new PontuacaoDAO();
+	PointDAO ptdao = new PointDAO();
 	
-	public List<Pontuacao> listarPontuacao(){
+	public List<Point> listarPontuacao(){
 		return ptdao.listarPontuacao();
 	}
 	
-	public List<Pontuacao> listaOgranizadaRespostaCerta(){
+	public List<Point> listaOgranizadaRespostaCerta(){
 		
 		return ptdao.listaOgranizadaRespostaCerta();
 	}
 	/**
-	 * Altera a pontuação do jogador.
+	 * Altera a pontuaï¿½ï¿½o do jogador.
 	 * Escolha 1 para resposta certa
 	 * Escolha 2 para resposta errada
 	 * 

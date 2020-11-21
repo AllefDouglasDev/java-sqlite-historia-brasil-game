@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.bean.Pontuacao;
+import model.bean.Point;
 
-public class PontuacaoDAO {
+public class PointDAO {
 	Connection con = null;
 	
-	public PontuacaoDAO(){
-		con = ConexaoBanco.obterConexao();
+	public PointDAO(){
+		con = DatabaseConnection.getConnection();
 	}
 	
-	public Pontuacao buscarPontuacaoJogador(int idEscola){
-		Pontuacao pontuacao = null;
+	public Point buscarPontuacaoJogador(int idEscola){
+		Point pontuacao = null;
 		PreparedStatement stmt = null;
 		String sql = "SELECT resposta_certa, resposta_errada FROM pontuacao WHERE id_escola = (?)";
 		ResultSet rs;
@@ -26,7 +26,7 @@ public class PontuacaoDAO {
 		stmt.setInt(1, idEscola);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			pontuacao = new Pontuacao(rs.getInt("resposta_certa"), rs.getInt("resposta_errada"));
+			pontuacao = new Point(rs.getInt("resposta_certa"), rs.getInt("resposta_errada"));
 		}
 		stmt.close();
 		return pontuacao;
@@ -39,8 +39,8 @@ public class PontuacaoDAO {
 		return pontuacao;
 	}
 	
-	public List<Pontuacao> listarPontuacao(){
-		List<Pontuacao> pontuacao = new ArrayList<Pontuacao>();
+	public List<Point> listarPontuacao(){
+		List<Point> pontuacao = new ArrayList<Point>();
 		PreparedStatement stmt = null;
 		String sql = "SELECT id,resposta_certa,resposta_errada FROM pontuacao";
 		ResultSet rs;
@@ -48,7 +48,7 @@ public class PontuacaoDAO {
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Pontuacao pt = new Pontuacao(rs.getInt("resposta_certa"), rs.getInt("resposta_errada"));
+			Point pt = new Point(rs.getInt("resposta_certa"), rs.getInt("resposta_errada"));
 			pontuacao.add(pt);
 		}
 		stmt.close();
@@ -62,8 +62,8 @@ public class PontuacaoDAO {
 		return pontuacao;
 	}
 	
-	public List<Pontuacao> listaOgranizadaRespostaCerta(){
-		List<Pontuacao> pontuacao = new ArrayList<Pontuacao>();
+	public List<Point> listaOgranizadaRespostaCerta(){
+		List<Point> pontuacao = new ArrayList<Point>();
 		PreparedStatement stmt = null;
 		String sql = "select p.resposta_certa, p.resposta_errada, "+
 				"(select 5-(p.resposta_certa + p.resposta_errada)) as falta_responder "+
@@ -77,7 +77,7 @@ public class PontuacaoDAO {
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while(rs.next()){
-			Pontuacao pt = new Pontuacao(rs.getInt("falta_responder"), rs.getInt("resposta_certa"), rs.getInt("resposta_errada"));
+			Point pt = new Point(rs.getInt("falta_responder"), rs.getInt("resposta_certa"), rs.getInt("resposta_errada"));
 			pontuacao.add(pt);
 		}
 		stmt.close();
@@ -93,7 +93,7 @@ public class PontuacaoDAO {
 	
 	public void atualizarPontuacao(int idEscola, int resposta) {
 		
-		Pontuacao pt = buscarPontuacaoJogador(idEscola);
+		Point pt = buscarPontuacaoJogador(idEscola);
 		
 		PreparedStatement stmt = null;
 		String sql = "";

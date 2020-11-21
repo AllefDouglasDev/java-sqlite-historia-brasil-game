@@ -2,22 +2,22 @@ package controller;
 
 import java.util.List;
 
-import model.bean.Alternativa;
-import model.bean.Pergunta;
-import model.dao.TabelasInsertsDAO;
+import model.bean.Alternative;
+import model.bean.Question;
+import model.dao.Repository;
 
 public class PerguntaController {
 	
-	public List<Pergunta> listaPergunta(int idAssunto)
+	public List<Question> listaPergunta(int idAssunto)
 	{
-		TabelasInsertsDAO tidao = new TabelasInsertsDAO();
-		return tidao.listarPergunta(idAssunto);
+		Repository tidao = new Repository();
+		return tidao.getQuestions(idAssunto);
 	}
 	
-	public List<Alternativa> listaAlternativa(int idPergunta)
+	public List<Alternative> listaAlternativa(int idPergunta)
 	{
-		TabelasInsertsDAO tidao = new TabelasInsertsDAO();
-		return tidao.listarAlternativa(idPergunta);
+		Repository tidao = new Repository();
+		return tidao.getAlternatives(idPergunta);
 	}
 	
 }

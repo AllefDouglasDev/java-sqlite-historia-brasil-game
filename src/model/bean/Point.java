@@ -1,6 +1,6 @@
 package model.bean;
 
-public class Pontuacao {
+public class Point {
 	
 	private int id;
 	private int respostaCerta;
@@ -8,27 +8,27 @@ public class Pontuacao {
 	private int falta_responder;
 	
 	
-	public Pontuacao(int id, int respostaCerta, int respostaErrada) {
+	public Point(int id, int respostaCerta, int respostaErrada) {
 		super();
 		this.id = id;
 		this.respostaCerta = respostaCerta;
 		this.respostaErrada = respostaErrada;
 	}
 	
-	public Pontuacao(int id, int falta_responder, int respostaCerta, int respostaErrada) {
+	public Point(int id, int falta_responder, int respostaCerta, int respostaErrada) {
 		this.id = id;
 		this.falta_responder = falta_responder;
 		this.respostaCerta = respostaCerta;
 		this.respostaErrada = respostaErrada;
 	}
 	
-	public Pontuacao(int respostaCerta, int respostaErrada) {
+	public Point(int respostaCerta, int respostaErrada) {
 		this.respostaCerta = respostaCerta;
 		this.respostaErrada = respostaErrada;
 	}
 
 
-	public Pontuacao(int id) {
+	public Point(int id) {
 		super();
 		this.id = id;
 	}

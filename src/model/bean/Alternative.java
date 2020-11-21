@@ -1,16 +1,16 @@
 package model.bean;
 
-public class Alternativa {
+public class Alternative {
 	
 	private int id;
 	private String resposta;
 	private String correta;
 	
-	public Alternativa(int id) {
+	public Alternative(int id) {
 		super();
 		this.id = id;
 	}
-	public Alternativa(int id, String resposta, String correta) {
+	public Alternative(int id, String resposta, String correta) {
 		super();
 		this.id = id;
 		this.resposta = resposta;

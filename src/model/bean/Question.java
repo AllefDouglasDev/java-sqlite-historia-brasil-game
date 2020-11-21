@@ -1,31 +1,31 @@
 package model.bean;
 
-public class Pergunta {
+public class Question {
 	private int id;
 	private String pergunta;
 	private String respondida;
 	
-	public Pergunta() {
+	public Question() {
 		
 	}
 	
-	public Pergunta(int id) {
+	public Question(int id) {
 		this.id = id;
 	}
 	
-	public Pergunta(int id, String pergunta) {
+	public Question(int id, String pergunta) {
 		super();
 		this.id = id;
 		this.pergunta = pergunta;
 	}
 	
-	public Pergunta(String pergunta, String respondida) {
+	public Question(String pergunta, String respondida) {
 		super();
 		this.pergunta = pergunta;
 		this.respondida = respondida;
 	}
 
-	public Pergunta(int id, String pergunta, String respondida) {
+	public Question(int id, String pergunta, String respondida) {
 		super();
 		this.id = id;
 		this.pergunta = pergunta;

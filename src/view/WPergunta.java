@@ -25,7 +25,7 @@ import javax.swing.border.MatteBorder;
 import controller.JogadoresController;
 import controller.PerguntaController;
 import controller.PontuacaoController;
-import model.bean.Alternativa;
+import model.bean.Alternative;
 import util.EscutaServidor;
 import util.PropriedadesTela;
 
@@ -57,7 +57,7 @@ public class WPergunta extends JDialog {
 	private JLabel lblTempo;
 	private JLabel lblTempoMil;
 	private int iniciarTh;
-	private List<Alternativa> listaPergunta;
+	private List<Alternative> listaPergunta;
 	//private static WJogadores jogadores;
 	
 	//static WPergunta dialog;
@@ -80,7 +80,7 @@ public class WPergunta extends JDialog {
 	 */
 	public WPergunta(int idEscola, int idAssunto, String nome) {
 		this.nome = nome;
-		listaPergunta = new ArrayList<Alternativa>();
+		listaPergunta = new ArrayList<Alternative>();
 		notificacao = false;
 		setIdEscola(idEscola);
 		setIdAssunto(idAssunto);
@@ -198,7 +198,7 @@ public class WPergunta extends JDialog {
 	
 	public void lblCopyright(JPanel panelFooter)
 	{
-		JLabel lblCopyright = new JLabel("© Copyright Grey Tool Co.");
+		JLabel lblCopyright = new JLabel("ï¿½ Copyright Grey Tool Co.");
 		lblCopyright.setForeground(new Color(255, 255, 255));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCopyright.setSize((int)(panelFooter.getWidth() * 0.35), (int)(panelFooter.getHeight() * 0.5));

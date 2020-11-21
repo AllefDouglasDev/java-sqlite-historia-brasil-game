@@ -17,8 +17,8 @@ import javax.swing.border.EmptyBorder;
 
 import controller.JogadoresController;
 import controller.PontuacaoController;
-import model.bean.Jogador;
-import model.bean.Pontuacao;
+import model.bean.Player;
+import model.bean.Point;
 import util.PropriedadesTela;
 
 import java.awt.Color;
@@ -234,7 +234,7 @@ public class WRanking extends JDialog {
 	
 	public void lblCopyright(JPanel panelRodape)
 	{
-		JLabel lblCopyright = new JLabel("© Copyright Grey Tool Co.");
+		JLabel lblCopyright = new JLabel("ï¿½ Copyright Grey Tool Co.");
 		lblCopyright.setForeground(new Color(255, 255, 255));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCopyright.setSize((int)(panelRodape.getWidth() * 0.35), (int)(panelRodape.getHeight() * 0.5));
@@ -633,7 +633,7 @@ public class WRanking extends JDialog {
 	public void listaRankNome()
 	{
 		JogadoresController jc = new JogadoresController();
-		List<Jogador> jg = new ArrayList<Jogador>();
+		List<Player> jg = new ArrayList<Player>();
 		jg.addAll(jc.listarlistaOgranizadaRespostaCerta());
 		
 		lblEscolas(panelLugarNome);
@@ -649,7 +649,7 @@ public class WRanking extends JDialog {
 	public void listaRankResposta(){
 		
 		pc = new PontuacaoController();
-		List<Pontuacao> pont = new ArrayList<Pontuacao>();
+		List<Point> pont = new ArrayList<Point>();
 		pont.addAll(pc.listaOgranizadaRespostaCerta());
 		
 		lblRespostasCertas(panelLugarRespostaCerta);

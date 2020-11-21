@@ -3,12 +3,12 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.bean.Jogador;
-import model.bean.Pergunta;
-import model.dao.JogadoresDAO;
+import model.bean.Player;
+import model.bean.Question;
+import model.dao.PlayerDAO;
 
 public class JogadoresController {
-	private JogadoresDAO jdao = new JogadoresDAO();
+	private PlayerDAO jdao = new PlayerDAO();
 	
 	public void insertJogador(String nome)
 	{
@@ -20,18 +20,18 @@ public class JogadoresController {
 		jdao.inserirPontuacao(idEscola);
 	}
 	
-	public List<Jogador> listarJogadores()
+	public List<Player> listarJogadores()
 	{
 		return jdao.listarJogadores();
 	}
 	
-	public List<Jogador> listarlistaOgranizadaRespostaCerta(){
+	public List<Player> listarlistaOgranizadaRespostaCerta(){
 		return jdao.listaOgranizadaRespostaCerta();
 	}
 	
 	public int[] assuntoDisponivel(int idEscola)
 	{
-		JogadoresDAO jdao = new JogadoresDAO();
+		PlayerDAO jdao = new PlayerDAO();
 		return jdao.assuntoDisponivel(idEscola);
 	}
 	
@@ -50,7 +50,7 @@ public class JogadoresController {
 		jdao.zerarPontuacao();
 		jdao.zerarEscolaEscolheAssuntos();
 		
-		List<Pergunta> lp = new ArrayList<Pergunta>();
+		List<Question> lp = new ArrayList<Question>();
 		lp.addAll(jdao.listarPerguntaRespondida());
 		
 		for (int i = 0; i < lp.size(); i++) {

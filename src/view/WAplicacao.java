@@ -70,11 +70,7 @@ public class WAplicacao extends JFrame {
 		
 		setLocationRelativeTo(null);
 		contentPane.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
-		
-		//zerarGame();
 	}
-	
-	
 	
 	public void panelTitulo()
 	{
@@ -195,7 +191,7 @@ public class WAplicacao extends JFrame {
 	
 	public void lblCopyright(JPanel panelFooter)
 	{
-		JLabel lblCopyright = new JLabel("© Copyright Grey Tool Co.");
+		JLabel lblCopyright = new JLabel("ï¿½ Copyright Grey Tool Co.");
 		lblCopyright.setForeground(new Color(255, 255, 255));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCopyright.setSize((int)(panelFooter.getWidth() * 0.35), (int)(panelFooter.getHeight() * 0.5));

@@ -1,45 +1,44 @@
 package model.bean;
 
-public class Assunto {
-	private int id;
+public class Player {
 	private String nome;
+	private int id;
 	
-	public Assunto(int id) {
+	public Player() {
+		super();
+	}
+	public Player(int id) {
 		super();
 		this.id = id;
 	}
-
-	public Assunto(int id, String nome) {
+	public Player(String nome, int id) {
 		super();
-		this.id = id;
 		this.nome = nome;
+		this.id = id;
 	}
-
-	public int getId() {
-		return id;
-	}
-
 	public String getNome() {
 		return nome;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Assunto [id=");
-		builder.append(id);
-		builder.append(", nome=");
+		builder.append("Jogador [nome=");
 		builder.append(nome);
+		builder.append(", id=");
+		builder.append(id);
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 	
 }
